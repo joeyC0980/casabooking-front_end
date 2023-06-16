@@ -22,8 +22,13 @@
   object-fit: cover;
 }
 
-.featuredTitles{
+
+.featuredTitles {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  Top: 37px;
+  left: 8px;
+  width: 100%; /* Adjust the width as needed */
+  text-align: center;
+
+  margin: 0 auto; 
 }

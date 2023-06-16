@@ -1,7 +1,7 @@
 .mail{
   width: 100%;
   margin-top: 50px;
-  background-color: #5db0b0;
+  background-color: #a795a4;;
   color: white;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@
 
 .mailInputContainer>button{
   height: 50px;
-  background-color: #91ece0;
+  background-color: #7a888a;
   color: white;
   font-weight: 500;
   border: none;

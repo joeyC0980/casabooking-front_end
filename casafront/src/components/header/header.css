@@ -1,6 +1,6 @@
 .header {
-  background-color: #94f6f1;
-  color: rgb(106, 114, 87);
+  background-color: #a795a4;
+  color:white;
   display: flex;
   justify-content: center;
   position: relative;
@@ -29,7 +29,7 @@
 }
 
 .headerListItem.active {
-  border: 1px solid rgb(100, 30, 30);
+  border: 1px solid rgb(209, 186, 186);
   padding: 10px;
   border-radius: 20px;
 }
@@ -39,7 +39,7 @@
 }
 
 .headerBtn {
-  background-color: #30bed6;
+  background-color: #7a888a;
   color: white;
   font-weight: 500;
   border: none;
@@ -50,7 +50,7 @@
 .headerSearch {
   height: 30px;
   background-color: white;
-  border: 3px solid #f07df6;
+  border: 1.2px solid #7c888b;
   display: flex;
   align-items: center;
   justify-content: space-around;

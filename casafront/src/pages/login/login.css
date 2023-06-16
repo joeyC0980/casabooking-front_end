@@ -3,12 +3,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/408725578.jpg?k=d19e61a2d265bb306fd787c906196dfba25c1e3248aa8ed02a3fa742c771d3cf&o=&hp=1");
+    background-size: 700px 470px;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+ 
   }
-  
+
   .lContainer {
+
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
+  
+  }
+  .title{
+    color:white;
+    margin-bottom: 5px;
+    margin-top: -109px;
+  
   }
   
   .lInput{
@@ -19,7 +33,7 @@
   .lButton {
     border: none;
     padding: 10px 20px;
-    background-color: #0071c2;
+    background-color: #93759c;
     color: white;
     font-weight: bold;
     cursor: pointer;

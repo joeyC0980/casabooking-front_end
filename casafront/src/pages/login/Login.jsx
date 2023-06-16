@@ -33,8 +33,14 @@ const Login = () => {
 
 
   return (
+    <>
+   
     <div className="login">
+  
       <div className="lContainer">
+      <div className="title">
+      Welcome to Casa_booking
+    </div>
         <input
           type="text"
           placeholder="username"
@@ -55,6 +61,7 @@ const Login = () => {
         {error && <span>{error.message}</span>}
       </div>
     </div>
+    </>
   );
 };
 

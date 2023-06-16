@@ -1,6 +1,6 @@
 .navbar{
   height: 50px;
-  background-color: #bff8e8;
+  background-color: #726474;
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@
 .navContainer{
   width: 100%;
   max-width: 1024px;
-  color: rgb(84, 70, 70);
+  color: rgb(112, 168, 246);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,5 +23,16 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #003580;
+  color: #5d789d;
+}
+
+.logoutBtn{
+  font:8px;
+  margin-left: 8px;
+  background-color: #7e6f80;
+  color: rgb(235, 240, 241);
+  border:none;
+  text-decoration: underline;
+  
+
 }

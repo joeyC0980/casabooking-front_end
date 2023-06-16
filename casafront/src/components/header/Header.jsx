@@ -49,6 +49,10 @@ const Header = ({ type }) => {
 
   const { dispatch } = useContext(SearchContext);
 
+  const handleButtonClick = () => {
+    window.location.href = 'http://localhost:3000/login';
+  };
+
   const handleSearch = () => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
@@ -86,19 +90,21 @@ const Header = ({ type }) => {
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-            Discover sought-after gateway cities and leisure destinations the world over.
+            Unlock new memories at our hotels around the world.
             </h1>
             <p className="headerDesc">
               Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Casabooking account
+              more with a free Casabooking account.
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <button className="headerBtn" onClick={handleButtonClick}>Log in / Register</button>}
+         
+
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="New York?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />

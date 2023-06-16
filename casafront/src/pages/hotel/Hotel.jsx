@@ -4,6 +4,8 @@ import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
@@ -24,6 +26,7 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
+
   const { data, loading, error } = useFetch(`/hotels/find/${id}`);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -37,7 +40,9 @@ const Hotel = () => {
     return diffDays;
   }
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+
+  const days = dates && dates[0] ? dayDifference(dates[0].endDate, dates[0].startDate) : 0;
+
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -59,11 +64,13 @@ const Hotel = () => {
   const handleClick = () => {
     if (user) {
       setOpenModal(true);
+
     } else {
       navigate("/login");
     }
   };
-  return (
+  console.log(handleClick)
+    return (
     <div>
       <Navbar />
       <Header type="list" />
@@ -98,7 +105,6 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
@@ -131,11 +137,11 @@ const Hotel = () => {
               <div className="hotelDetailsPrice">
                 <h1>Perfect for a {days}-night stay!</h1>
                 <span>
-                  Located in the real heart of Krakow, this property has an
-                  excellent location score of 9.8!
+                 This property has an
+                  excellent location score of 5.0!
                 </span>
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  <b>cheapest with ${days * data.cheapestPrice * options.room}</b> ({days}{" "}
                   nights)
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
@@ -147,6 +153,7 @@ const Hotel = () => {
         </div>
       )}
       {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+   
     </div>
   );
 };

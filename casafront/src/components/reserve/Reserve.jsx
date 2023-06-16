@@ -1,17 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-import "./reserve.css";
+
 import useFetch from "../../hooks/useFetch";
 import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PaymentForm from "../payment/PaymentForm";
 
-const Reserve = ({ setOpen, hotelId }) => {
+import "./reserve.css";
+
+
+
+export default function Reserve({ setOpen, hotelId }) {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
+
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -39,19 +45,28 @@ const Reserve = ({ setOpen, hotelId }) => {
     return !isFound;
   };
 
+  
   const handleSelect = (e) => {
     const checked = e.target.checked;
     const value = e.target.value;
-    setSelectedRooms(
-      checked
-        ? [...selectedRooms, value]
-        : selectedRooms.filter((item) => item !== value)
-    );
+  
+    setSelectedRooms((prevSelectedRooms) => {
+      if (checked) {
+        return [...prevSelectedRooms, value];
+      } else {
+        return prevSelectedRooms.filter((item) => item !== value);
+      }
+    });
   };
+  
+  
 
+
+ 
   const navigate = useNavigate();
 
   const handleClick = async () => {
+    console.log("Button clicked!")
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
@@ -62,10 +77,14 @@ const Reserve = ({ setOpen, hotelId }) => {
         })
       );
       setOpen(false);
-      navigate("/");
+      setSelectedRooms([]);
+      navigate("/payment");
+ 
     } catch (err) {}
   };
+ 
   return (
+    <>
     <div className="reserve">
       <div className="rContainer">
         <FontAwesomeIcon
@@ -82,7 +101,7 @@ const Reserve = ({ setOpen, hotelId }) => {
               <div className="rMax">
                 Max people: <b>{item.maxPeople}</b>
               </div>
-              <div className="rPrice">{item.price}</div>
+              <div className="rPrice">Price: ${item.price}</div>
             </div>
             <div className="rSelectRooms">
               {item.roomNumbers.map((roomNumber) => (
@@ -99,12 +118,18 @@ const Reserve = ({ setOpen, hotelId }) => {
             </div>
           </div>
         ))}
-        <button onClick={handleClick} className="rButton">
+        <div>
+        <button onClick={handleClick}  className="rButton">
           Reserve Now!
         </button>
+        </div>
       </div>
+     
     </div>
+    {/* <PaymentForm selectedRoomPrice={selectedRooms.length > 0 ? selectedRooms[0].price : 0} /> */}
+    
+   
+    </>
   );
 };
 
-export default Reserve;

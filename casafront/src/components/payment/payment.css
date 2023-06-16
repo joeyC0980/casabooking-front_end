@@ -1,0 +1,47 @@
+
+
+.paymentContainer {
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Shades_of_light_blue.png/640px-Shades_of_light_blue.png");
+	background-size: 500px 270px;
+    background-position: center;
+    background-repeat: no-repeat;
+	border: 4px solid rgb(80, 162, 203);
+	
+  }
+  
+  .FormGroup {
+	width: 300px;
+	margin-bottom: 20px;
+	border: 4px solid rgb(216, 225, 199);
+
+  }
+  
+  .payBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #405d5e;
+	color: #adeae5;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 90px;
+  }
+
+   .totalAmount{
+	
+	margin-top:-148px;
+	color:#adeae5
+  }
+  
+  .h2{
+	color:rgb(99, 90, 75);
+	font-family:fantasy;
+	font-size: 15px;
+  }
